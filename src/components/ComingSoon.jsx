@@ -84,22 +84,33 @@ flex flex-col lg:flex-row gap-8 md:gap-10 overflow-hidden">
         />
 
         <motion.button
-        onClick={() => setShowAbout(true)}
-        whileHover={{
-            scale: 1.1, // Increased scale for more impact
-            y: -2,     // Subtle lift
-        }}
-        whileTap={{ scale: 0.95 }}
-        className="relative px-6 py-2 text-lg lg:text-xl font-semibold tracking-tight text-slate-600 hover:text-blue-600 transition-colors duration-300 group bg-transparent"
+          onClick={() => setShowAbout(true)}
+          whileHover={{ scale: 1.08, y: -2 }}
+          whileTap={{ scale: 0.95 }}
+          className="
+            relative px-4 sm:px-6 py-2 sm:py-2.5 
+            text-base sm:text-lg lg:text-xl 
+            font-semibold tracking-tight 
+            text-slate-600 hover:text-blue-600 
+            transition-all duration-300 group bg-transparent
+            focus:outline-none
+          "
         >
-        <span className="relative z-10">About</span>
+          <span className="relative z-10">About</span>
 
-        {/* Animated underline with a gradient */}
-        <span className="absolute left-0 bottom-0 h-[3px] w-0 bg-gradient-to-r from-blue-400 to-sky-300 transition-all duration-300 ease-out group-hover:w-full"></span>
-        
-        {/* Faint background glow on hover */}
-        <span className="absolute inset-0 rounded-xl transition-all duration-300 group-hover:bg-blue-50/50 -z-0"></span>
+          {/* Underline */}
+          <span className="absolute left-0 bottom-0 h-[2px] sm:h-[3px] w-0 
+            bg-gradient-to-r from-blue-400 to-sky-300 
+            transition-all duration-300 ease-out group-hover:w-full">
+          </span>
+
+          {/* Soft glow */}
+          <span className="absolute inset-0 rounded-xl 
+            bg-blue-400/10 blur-md opacity-0 
+            group-hover:opacity-100 transition -z-10">
+          </span>
         </motion.button>
+
 
 
         </div>
@@ -179,7 +190,7 @@ flex flex-col lg:flex-row gap-8 md:gap-10 overflow-hidden">
 
 
           {/* Store Buttons */}
-          <div className="flex gap-4 mt-4">
+          <div className="flex flex-wrap justify-center lg:justify-start gap-4 mt-4">
             {[
               "https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg",
               "https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg"
@@ -187,15 +198,16 @@ flex flex-col lg:flex-row gap-8 md:gap-10 overflow-hidden">
               <motion.img
                 key={i}
                 src={src}
-                className="h-12 cursor-pointer"
+                className="h-10 sm:h-12 md:h-14 cursor-pointer"
                 whileHover={{
                   scale: 1.08,
-                  filter: "drop-shadow(0 8px 18px rgba(0,0,0,0.3))"
+                  filter: "drop-shadow(0 8px 18px rgba(0,0,0,0.25))"
                 }}
                 whileTap={{ scale: 0.95 }}
               />
             ))}
           </div>
+
 
           {/* Social Icons */}
           <div className="flex gap-6 mt-6 text-gray-500">
@@ -233,7 +245,8 @@ flex flex-col lg:flex-row gap-8 md:gap-10 overflow-hidden">
 
             {/* Main Phone */}
             <motion.div
-              className="w-[200px] h-[400px] sm:w-[230px] sm:h-[460px] md:w-[260px] md:h-[520px] rounded-[32px] p-[3px] shadow-xl overflow-hidden animate-float"
+              className="w-[180px] h-[360px] sm:w-[220px] sm:h-[440px] md:w-[260px] md:h-[520px] rounded-[28px] sm:rounded-[32px] p-[3px] shadow-xl overflow-hidden animate-float"
+
               whileHover={{
                 scale: 1.02,
               }}
@@ -247,7 +260,8 @@ flex flex-col lg:flex-row gap-8 md:gap-10 overflow-hidden">
             </motion.div>
 
             {/* Mini Card 1 */}
-            <div className="absolute -top-6 sm:-top-10 -right-20 sm:-right-28 w-28 sm:w-40 h-20 sm:h-28 bg-white rounded-xl shadow-lg overflow-hidden">
+            <div className="absolute -top-4 sm:-top-10 -right-16 sm:-right-28 w-24 sm:w-40 h-16 sm:h-28bg-white rounded-xl shadow-lg overflow-hidden">
+
               <motion.img
                 src={profileImg}
                 className="w-full object-cover"
@@ -258,7 +272,7 @@ flex flex-col lg:flex-row gap-8 md:gap-10 overflow-hidden">
             </div>
 
             {/* Mini Card 2 */}
-            <div className="absolute bottom-16 -left-28 w-36 h-24 bg-white rounded-xl shadow-lg overflow-hidden">
+            <div className="absolute bottom-10 sm:bottom-16 -left-20 sm:-left-28 w-28 sm:w-36 h-20 sm:h-24bg-white rounded-xl shadow-lg overflow-hidden">
               <motion.img
                 src={discoverImg}
                 className="w-full object-cover"
@@ -269,7 +283,8 @@ flex flex-col lg:flex-row gap-8 md:gap-10 overflow-hidden">
             </div>
 
             {/* Mini Card 3 */}
-            <div className="absolute bottom-10 -right-16 w-32 h-20 bg-white rounded-xl shadow-lg overflow-hidden">
+            <div className="absolute bottom-6 sm:bottom-10 -right-10 sm:-right-16 w-24 sm:w-32 h-16 sm:h-20bg-white rounded-xl shadow-lg overflow-hidden">
+
               <motion.img
                 src={campaignImg}
                 className="w-full object-cover"
@@ -284,7 +299,6 @@ flex flex-col lg:flex-row gap-8 md:gap-10 overflow-hidden">
 
         {/* Footer Links */}
         <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-8 flex gap-4 sm:gap-6 text-xs sm:text-sm text-gray-500 z-50">
-
 
         <motion.span
             onClick={() => setShowFAQ(true)}
